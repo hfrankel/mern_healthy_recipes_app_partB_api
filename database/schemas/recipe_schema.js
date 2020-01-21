@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const CommentSchema = require('./comment_schema')
 
 const RecipeSchema = new Schema ({
     title: {
@@ -26,10 +27,27 @@ const RecipeSchema = new Schema ({
         type: Number,
         required: true
     },
-    ingredients: [IngredientsSchema],
-    steps: [StepsSchema],
+    ingredients: [],
+    steps: [],
     isFeatured: {
         type: Boolean,
         required: true
-    }
+    },
+    ratings: {
+        type: Number,
+        required: true
+    },
+    isFlagged: {
+        flagged: Boolean,
+        reasonForFlag: String,
+        additionalInfo: String
+    },
+    tags: [],
+    image: {
+        type: String,
+        required: true
+    },
+    comments: [CommentSchema]
 })
+
+module.exports = RecipeSchema;
