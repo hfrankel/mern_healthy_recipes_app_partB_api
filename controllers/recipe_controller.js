@@ -26,7 +26,7 @@ async function create (req, res) {
         image
     })
     .catch(error => res.status(500).send(error))
-    res.redirect("/")
+    res.send("success")
 }
 
     async function index (req, res) {
@@ -47,7 +47,7 @@ async function create (req, res) {
     async function destroy (req, res) {
         let { id } = req.params
         await RecipeModel.findByIdAndRemove(id)
-        res.redirect("/recipes")
+        res.send("successfully deleted")
     }
 
     async function edit (req, res) {
