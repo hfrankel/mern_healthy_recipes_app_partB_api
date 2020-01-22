@@ -4,14 +4,14 @@ const UserController = require('../controllers/user_controller');
 
 
 
-router.post('/', UserController.create);
+// router.post('/', UserController.create);
 
 // router.get('/new', UserController.make);
 
-router.get('/:id', UserController.show);
+// router.get('/:id', UserController.show);
 
-router.post('/:id', UserController.favourite);
+// router.post('/:id', UserController.favourite);
 
-router.delete('/:id', UserController.destroy);
+// router.delete('/:id', UserController.destroy);
 
 module.exports = router;
