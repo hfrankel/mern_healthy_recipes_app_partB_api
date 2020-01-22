@@ -7,10 +7,6 @@ const RecipeSchema = new Schema ({
         type: String,
         required: true
     },
-    summary: {
-        type: String,
-        required: true
-    },
     description: {
         type: String,
         required: true
@@ -31,11 +27,9 @@ const RecipeSchema = new Schema ({
     steps: [],
     isFeatured: {
         type: Boolean,
-        required: true
     },
     ratings: {
         type: Number,
-        required: true
     },
     isFlagged: {
         flagged: Boolean,
