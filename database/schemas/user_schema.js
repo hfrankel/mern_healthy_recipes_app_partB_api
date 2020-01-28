@@ -2,7 +2,11 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
-    name: {
+    auth0: {
+        type: String,
+        required: true
+    },
+    nickname: {
         type: String,
         required: true
     },
@@ -10,9 +14,8 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
-    favouriteRecipes: [Number],
-    userRecipes: [Number],
-    admin: Boolean
+    favouriteRecipes: [String],
+    userRecipes: [String]
 })
 
 module.exports = UserSchema;
