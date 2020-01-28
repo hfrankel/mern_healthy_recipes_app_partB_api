@@ -28,9 +28,7 @@ const RecipeSchema = new Schema ({
     isFeatured: {
         type: Boolean,
     },
-    ratings: {
-        type: Number,
-    },
+    ratings: [],
     isFlagged: {
         flagged: Boolean,
         reasonForFlag: String,
@@ -39,7 +37,7 @@ const RecipeSchema = new Schema ({
     tags: [],
     image: {
         type: String,
-        required: true
+        // required: true
     },
     comments: [CommentSchema]
 })
