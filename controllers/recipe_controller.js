@@ -41,7 +41,7 @@ function make (req, res) {
 async function show (req, res) {
     let { id } = req.params
     let recipe = await RecipeModel.findById(id)
-rate_recipes
+    rate_recipes // review this line
     .catch(error => res.status(500).send(error))
     res.send(recipe)
 }
