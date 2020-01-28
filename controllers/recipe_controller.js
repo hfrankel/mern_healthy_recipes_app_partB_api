@@ -41,6 +41,7 @@ function make (req, res) {
 async function show (req, res) {
     let { id } = req.params
     let recipe = await RecipeModel.findById(id)
+rate_recipes
     .catch(error => res.status(500).send(error))
     res.send(recipe)
 }
@@ -83,6 +84,7 @@ async function update (req, res) {
         res.redirect(`/recipes/${id}`)
 }
 
+
 async function rateRecipe (req, res) {
     // pull off the recipe and user id
     let { id, user_id } = req.params;
@@ -101,6 +103,7 @@ async function rateRecipe (req, res) {
             res.json(recipe.ratings.length);
         }
 }
+
 
 module.exports = {
     create,
