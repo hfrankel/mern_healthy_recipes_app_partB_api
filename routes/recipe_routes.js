@@ -7,6 +7,8 @@ router.get('/', RecipeController.index);
 
 router.post('/', RecipeController.create);
 
+router.post('/:id/:user_id', RecipeController.rateRecipe);
+
 router.get('/new', RecipeController.make);
 
 router.get('/:id', RecipeController.show);
