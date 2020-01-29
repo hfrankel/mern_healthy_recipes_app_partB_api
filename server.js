@@ -33,5 +33,11 @@ app.get("/api/external", checkJwt, (req, res) => {
   });
 });
 
+app.use(checkJwt);
+
+app.get('/authorized', function (req, res) {
+    res.send('Secured Resource');
+});
+
 // Start the app
 app.listen(3001, () => console.log("API listening on 3001"));

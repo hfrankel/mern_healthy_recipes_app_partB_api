@@ -9,7 +9,8 @@
     "seed": "node database/seeds",
     "dev-server": "nodemon index.js",
     "server": "forever -c \"nodemon --exitcrash -L\" index.js",
-    "start": "node index.js"
+    "start": "node index.js",
+    "auth": "node server.js"
   },
   "author": "",
   "license": "ISC",
@@ -26,6 +27,7 @@
     "express": "^4.16.4",
     "express-handlebars": "^3.0.0",
     "express-jwt": "^5.3.1",
+    "jsonwebtoken": "^8.5.1",
     "jwks-rsa": "^1.6.2",
     "mongoose": "^5.8.9",
     "morgan": "^1.9.1",

@@ -18,6 +18,8 @@ async function checkUser (req, res) {
     console.log(user);
 }
 
+
+
 module.exports = {
     checkUser
 }
