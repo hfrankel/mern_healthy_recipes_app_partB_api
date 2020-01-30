@@ -8,6 +8,10 @@ const UserController = require('../controllers/user_controller');
 
 router.post('/', UserController.checkUser);
 
+router.get('/', (req,res) => {
+    res.json("Hit the backend")
+})
+
 // router.get('/new', UserController.make);
 
 // router.get('/:id', UserController.show);

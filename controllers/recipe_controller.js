@@ -9,9 +9,7 @@ async function create (req, res) {
         cookTime,
         ingredients,
         steps,
-        // ratings,
-        tags,
-        image } = req.body
+        } = req.body
 
     let recipe = await RecipeModel.create({
         title,
@@ -20,13 +18,13 @@ async function create (req, res) {
         prepTime,
         cookTime,
         ingredients,
-        steps,
+        steps
         // ratings,
-        tags,
-        image
+        // tags,
+        // image
     })
     .catch(error => res.status(500).send(error))
-    res.send("success")
+    res.json(recipe);
 }
 
 async function index (req, res) {

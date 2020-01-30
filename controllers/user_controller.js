@@ -7,15 +7,15 @@ const UserModel = require('./../database/models/user_model');
 // Redirect user to page
 
 async function checkUser (req, res) {
-    let { sub, nickname, email } = req.body;
     
-    // UserModel.findOneAndUpdate({ })
-
+    let { sub, nickname, email } = req.body;
     let user = await UserModel.findOne({auth0: sub});
-    if (user === undefined) {
-        user = new UserModel({sub, nickname, email});
+
+    if (user === null) {
+        user = new UserModel({auth0: sub, nickname, email});
+        await user.save().catch(err => console.log("******", err));
     }
-    console.log(user);
+    res.json(user);
 }
 
 module.exports = {
