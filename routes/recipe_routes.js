@@ -2,10 +2,12 @@ const express = require('express');
 const router = express.Router();
 const RecipeController = require('../controllers/recipe_controller');
 const CommentController = require('../controllers/comment_controller'); // check this
+const checkJWT = require('./../middleware/check_jwt_middleware');
+const attachUser = require('./../middleware/attach_user_jwt_middleware');
 
 router.get('/', RecipeController.index);
 
-router.post('/', RecipeController.create);
+router.post('/', checkJWT, attachUser, RecipeController.create);
 
 router.post('/:id/:user_id', RecipeController.rateRecipe);
 

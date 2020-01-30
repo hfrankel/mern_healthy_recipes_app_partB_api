@@ -2,29 +2,36 @@ const RecipeModel = require('./../database/models/recipe_model');
 
 // create a recipe
 async function create (req, res) {
-    let { title,
-        description,
-        yield,
-        prepTime,
-        cookTime,
-        ingredients,
-        steps,
-        } = req.body
+    
+    try {
+        let { title,
+            description,
+            yield,
+            prepTime,
+            cookTime,
+            ingredients,
+            steps,
+            } = req.body
+    
+        let recipe = await RecipeModel.create({
+            title,
+            description,
+            yield,
+            prepTime,
+            cookTime,
+            ingredients,
+            steps,
+            user_id: req.dbuser._id
+            // ratings,
+            // tags,
+            // image
+        })
 
-    let recipe = await RecipeModel.create({
-        title,
-        description,
-        yield,
-        prepTime,
-        cookTime,
-        ingredients,
-        steps
-        // ratings,
-        // tags,
-        // image
-    })
-    .catch(error => res.status(500).send(error))
-    res.json(recipe);
+        return res.json(recipe);
+    } catch(err) {
+        return res.status(500).json(err);
+    }
+
 }
 
 async function index (req, res) {

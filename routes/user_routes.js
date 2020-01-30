@@ -1,12 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const UserController = require('../controllers/user_controller');
+const checkJWT = require('./../middleware/check_jwt_middleware');
 
 
 
 // router.post('/', UserController.create);
 
-router.post('/', UserController.checkUser);
+router.post('/', checkJWT, UserController.checkUser);
 
 router.get('/', (req,res) => {
     res.json("Hit the backend")
