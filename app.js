@@ -1,19 +1,16 @@
 const express = require("express");
-const exphbs = require("express-handlebars");
 const morgan = require("morgan");
 const app = express();
 const cors = require("cors");
 
+// const user = require("./routes/user_routes");
 app.use(cors());
-
-app.engine("handlebars", exphbs({defaultLayout: "main"}));
-app.set("view engine", "handlebars");
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 app.use(morgan("combined"));
-
+// app.use('/user', user)
 app.use(require("./routes"));
 
 app.use(express.static("public"));

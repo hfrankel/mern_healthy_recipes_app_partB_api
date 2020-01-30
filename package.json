@@ -10,11 +10,12 @@
     "dev-server": "nodemon index.js",
     "server": "forever -c \"nodemon --exitcrash -L\" index.js",
     "start": "node index.js",
-    "auth": "node server.js"
+    "auth": "forever -c \"nodemon --exitcrash -L\" server.js"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "axios": "^0.19.2",
     "forever": "^0.15.3",
     "jest": "^23.6.0",
     "nodemon": "^1.18.7",
