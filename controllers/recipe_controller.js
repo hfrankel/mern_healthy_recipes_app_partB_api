@@ -36,7 +36,8 @@ async function create (req, res) {
 
 async function index (req, res) {
     let recipes = await RecipeModel.find()
-    res.render("recipe/index", { recipes })
+    .catch(error => res.status(500).send(error))
+    res.json(recipes)
 }
 
 function make (req, res) {
@@ -44,11 +45,11 @@ function make (req, res) {
 }
 
 async function show (req, res) {
+    console.log(req.params)
     let { id } = req.params
     let recipe = await RecipeModel.findById(id)
-    rate_recipes // review this line
     .catch(error => res.status(500).send(error))
-    res.send(recipe)
+    res.json(recipe)
 }
 
 async function destroy (req, res) {
