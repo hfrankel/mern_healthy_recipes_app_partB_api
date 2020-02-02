@@ -12,17 +12,12 @@ const CommentSchema = new Schema({
     },
     nickname: {
         type: String,
-        required: true
-    },
-    email: {
-        type: String,
-        required: true
-    },
-    user_id: {
-        type: Schema.Types.ObjectId,
-        ref: 'User'
-    }
-
+        // required: true
+    }//,
+    // user_id: {
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'User'
+    // }
 })
 
 module.exports = CommentSchema;
