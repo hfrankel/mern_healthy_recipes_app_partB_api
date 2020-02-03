@@ -7,7 +7,7 @@ const attachUser = require('./../middleware/attach_user_jwt_middleware');
 
 router.get('/', RecipeController.index);
 
-router.post('/', checkJWT, attachUser, RecipeController.create);
+router.post('/', RecipeController.create); //need to add back checkJWT, attachUser,
 
 router.post('/:id/comment', CommentController.create); // add authentication + authorization later
 
