@@ -39,12 +39,12 @@ const RecipeSchema = new Schema ({
         type: String,
         // required: true
     },
-    comments: [CommentSchema],
-    user_id:{
-        type: Schema.Types.ObjectId,
-        ref: 'User',
-        required: true
-    }
+    comments: [CommentSchema]//,
+    // user_id:{
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'User',
+    //     required: true
+    // }
 })
 
 module.exports = RecipeSchema;

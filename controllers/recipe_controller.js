@@ -21,7 +21,7 @@ async function create (req, res) {
             cookTime,
             ingredients,
             steps,
-            user_id: req.dbuser._id
+            // user_id: req.dbuser._id
             // ratings,
             // tags,
             // image
