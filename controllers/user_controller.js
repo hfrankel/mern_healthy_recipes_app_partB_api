@@ -8,7 +8,6 @@ const axios = require('axios');
 // Redirect user to page
 
 async function checkUser (req, res) {
-    
     try {
         let { sub } = req.user;
         let user = await UserModel.findOne({auth0: sub});
@@ -19,10 +18,12 @@ async function checkUser (req, res) {
                     "Authorization": req.headers.authorization
                 }
             });
+
             let { nickname, email } = response.data;
             user = new UserModel({auth0: sub, nickname, email});
             await user.save();
         }
+        // sessionStorage.setItem("token", req.headers.authorization);
 
         return res.json(user)
     } catch(err) {

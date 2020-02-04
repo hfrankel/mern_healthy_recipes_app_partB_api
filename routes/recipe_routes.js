@@ -9,7 +9,7 @@ router.get('/', RecipeController.index);
 
 router.post('/', checkJWT, attachUser, RecipeController.create);
 
-router.post('/:id/comment', CommentController.create); // add authentication + authorization later
+router.post('/:id/comment', checkJWT, attachUser, CommentController.create); // add authentication + authorization checkJWT, attachUser
 
 router.post('/:id/:user_id', RecipeController.rateRecipe);
 
