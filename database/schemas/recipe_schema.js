@@ -12,7 +12,7 @@ const RecipeSchema = new Schema ({
         required: true
     },
     yield: {
-        type: Number,
+        type: String,
         required: true
     },
     prepTime: {

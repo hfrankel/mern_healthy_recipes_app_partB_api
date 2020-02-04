@@ -11,6 +11,7 @@ async function create (req, res) {
             cookTime,
             ingredients,
             steps,
+            image
             } = req.body
     
         let recipe = await RecipeModel.create({
@@ -21,10 +22,10 @@ async function create (req, res) {
             cookTime,
             ingredients,
             steps,
-            user_id: req.dbuser._id
+            user_id: req.dbuser._id,
+            image
             // ratings,
             // tags,
-            // image
         })
 
         return res.json(recipe);
