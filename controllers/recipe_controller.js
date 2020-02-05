@@ -124,8 +124,8 @@ async function rateRecipe(req, res) {
 async function flagRecipe(req, res) {
   let { id } = req.params;
   console.log(id);
-  console.log(req.body.isFlagged);
-  let { reasonForFlag } = req.body.isFlagged;
+  console.log(req.body);
+  let { reasonForFlag } = req.body;
 
   const query = { _id: id };
 
