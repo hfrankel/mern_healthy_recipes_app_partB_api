@@ -7,6 +7,8 @@ const attachUser = require("./../middleware/attach_user_jwt_middleware");
 
 router.get("/", RecipeController.index);
 
+router.get("/flaggedrecipes", RecipeController.flaggedRecipesIndex);
+
 router.post("/", checkJWT, attachUser, RecipeController.create);
 
 router.post("/:id/comment", checkJWT, attachUser, CommentController.create);
