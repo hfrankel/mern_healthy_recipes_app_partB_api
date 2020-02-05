@@ -125,7 +125,7 @@ async function flagRecipe(req, res) {
   let { id } = req.params;
   console.log(id);
   console.log(req.body.isFlagged);
-  let { reasonForFlag } = req.body.isFlagged;
+  let { reasonForFlag } = req.body;
 
   const query = { _id: id };
 
@@ -156,6 +156,27 @@ async function flagRecipe(req, res) {
   }
 }
 
+async function flaggedRecipesIndex(req, res) {
+    try {
+        // find all recipes
+        let recipes = await RecipeModel.find()
+        // convert recipes to arr containing recipes data
+        let recipeArr = Object.values(recipes);
+        // where the flagged recipes will be stored
+        let flaggedRecipesArr = [];
+        for (let recipe of recipeArr ) {
+
+            if (recipe["isFlagged"]["flagged"] === (true)) {
+                flaggedRecipesArr.push(recipe)
+            }
+        }
+        // send back arr with flagged recipes
+        return res.json(flaggedRecipesArr);
+    } catch(err) {
+        return res.status(500).json(err);
+    }
+}
+
 module.exports = {
   create,
   index,
@@ -165,5 +186,6 @@ module.exports = {
   edit,
   update,
   rateRecipe,
-  flagRecipe
+  flagRecipe,
+  flaggedRecipesIndex
 };
