@@ -57,8 +57,13 @@ async function show(req, res) {
 
 async function destroy(req, res) {
   let { id } = req.params;
-  await RecipeModel.findByIdAndRemove(id);
-  res.send("successfully deleted");
+
+  if (req.dbuser.email === 'littlemisskat13@hotmail.com') {
+    await RecipeModel.findByIdAndRemove(id);
+    return res.send("successfully deleted");
+  } else {
+    return res.send("Unauthorized!!! Admin can delete only")
+  }
 }
 
 async function edit(req, res) {

@@ -25,6 +25,6 @@ router.get("/:id", RecipeController.show);
 
 router.get("/:id/edit", RecipeController.edit);
 
-router.delete("/:id", RecipeController.destroy);
+router.delete("/:id", checkJWT, attachUser, RecipeController.destroy);
 
 module.exports = router;
